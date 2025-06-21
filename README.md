@@ -17,3 +17,16 @@ composer require ali-eltaweel/batch-processor
 ```
 
 ## Usage
+
+```php
+use BatchProcessor\BatchProcessor;
+
+$processes = [
+  [ 'command' => [ 'tar', '-czf', 'dir1.tar.gz', 'dir1' ] ],
+  [ 'command' => [ 'tar', '-czf', 'dir2.tar.gz', 'dir2' ] ]
+];
+
+$processor = new BatchProcessor($processes, maxConcurrentProcesses: 2);
+
+$processor->start();
+```
